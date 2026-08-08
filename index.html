@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElderSeva — Care That Feels Close</title>
+<meta name="description" content="ElderSeva — trusted, transparent, on-demand elder care at home.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#06101a; --text:#f7fbff; --muted:#a9b8c8;
+  --line:rgba(255,255,255,.13); --glass:rgba(255,255,255,.075);
+  --blue:#8bdcff; --violet:#b9a8ff; --green:#9bf2ca;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,sans-serif;color:var(--text);overflow-x:hidden;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(91,188,255,.18),transparent 28%),
+    radial-gradient(circle at 88% 22%,rgba(177,128,255,.15),transparent 30%),
+    radial-gradient(circle at 50% 85%,rgba(92,230,185,.07),transparent 28%),
+    linear-gradient(145deg,#06101a,#091522 55%,#040910);
+}
+body:after{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+a{color:inherit;text-decoration:none}
+nav{
+  position:fixed;z-index:50;top:16px;left:50%;transform:translateX(-50%);
+  width:min(1120px,92%);padding:11px 15px;border:1px solid var(--line);
+  border-radius:22px;background:rgba(8,17,28,.58);
+  backdrop-filter:blur(25px) saturate(160%);-webkit-backdrop-filter:blur(25px) saturate(160%);
+  box-shadow:0 20px 60px rgba(0,0,0,.3)
+}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:-.05em}.logo span{color:var(--blue)}
+.links{display:flex;gap:4px}.links a{padding:9px 11px;color:var(--muted);font-size:12px;border-radius:11px}
+.links a:hover{background:rgba(255,255,255,.07);color:#fff}
+section{width:min(1120px,92%);margin:auto;padding:105px 0}
+.hero{min-height:100vh;display:grid;align-items:center;padding-top:145px}
+.heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:center}
+.badge{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(255,255,255,.05);font-size:11px;color:#c9d8e8
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green)}
+h1{font-size:clamp(55px,9vw,105px);line-height:.91;letter-spacing:-.08em;margin:25px 0}
+.gradient{
+  background:linear-gradient(100deg,#fff 15%,var(--blue) 55%,var(--violet));
+  color:transparent;background-clip:text;-webkit-background-clip:text
+}
+.hero p{max-width:680px;color:var(--muted);font-size:18px;line-height:1.75}
+.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{padding:13px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.06);font-size:13px;font-weight:600;transition:.3s}
+.btn.primary{background:linear-gradient(135deg,rgba(139,220,255,.23),rgba(185,168,255,.16));border-color:rgba(139,220,255,.32)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(0,0,0,.3)}
+.glass{
+  position:relative;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(255,255,255,.035));
+  border-radius:28px;box-shadow:0 25px 80px rgba(0,0,0,.32);
+  backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px)
+}
+.glass:before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,.13),transparent 27%,transparent 72%,rgba(139,220,255,.05))
+}
+.visual{padding:20px;transform:rotate(2deg);transition:.5s}
+.visual:hover{transform:rotate(0) translateY(-7px)}
+.scene{
+  height:380px;border-radius:21px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 25% 25%,rgba(255,255,255,.5),transparent 2%),
+    radial-gradient(circle at 72% 35%,rgba(139,220,255,.18),transparent 24%),
+    radial-gradient(circle at 40% 75%,rgba(185,168,255,.17),transparent 25%),
+    linear-gradient(155deg,#17324a,#0d1725 55%,#101126)
+}
+.scene:before{
+  content:"";position:absolute;width:230px;height:120px;left:50%;bottom:60px;transform:translateX(-50%);
+  border-radius:14px 14px 4px 4px;background:linear-gradient(145deg,#d9e7ee,#7f9eaa);
+  box-shadow:0 -20px 50px rgba(139,220,255,.12)
+}
+.scene:after{
+  content:"";position:absolute;width:80px;height:80px;left:50%;bottom:105px;transform:translateX(-50%);
+  border-radius:50%;background:linear-gradient(145deg,#fff,#a5bfd0);box-shadow:0 0 50px rgba(139,220,255,.18)
+}
+.sceneLabel{
+  position:absolute;left:18px;bottom:18px;padding:10px 12px;border:1px solid var(--line);
+  background:rgba(5,12,20,.48);backdrop-filter:blur(15px);border-radius:13px;font-size:11px;color:#d5e3ef
+}
+.sectionHead{display:flex;justify-content:space-between;align-items:end;gap:35px;margin-bottom:28px}
+.kicker{font-size:11px;color:var(--blue);font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+h2{font-size:clamp(35px,5vw,58px);line-height:.98;letter-spacing:-.065em;margin-top:9px}
+.lead{max-width:500px;color:var(--muted);line-height:1.7;font-size:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{padding:25px;min-height:190px}
+.card h3{font-size:18px;letter-spacing:-.025em;margin-bottom:10px}
+.card p,.card li{color:var(--muted);font-size:14px;line-height:1.7}
+.card ul{padding-left:18px}
+.number{font-size:33px;font-weight:800;letter-spacing:-.06em;margin-bottom:18px}
+.tag{
+  display:inline-block;padding:7px 10px;border:1px solid var(--line);border-radius:999px;
+  color:#c9d9e8;background:rgba(255,255,255,.035);font-size:10px;margin:5px 4px 0 0
+}
+.quote{
+  padding:45px;text-align:center;margin-top:15px
+}
+.quote h3{font-size:clamp(25px,4vw,42px);letter-spacing:-.05em;line-height:1.1}
+.quote p{max-width:650px;margin:15px auto 0;color:var(--muted);line-height:1.7}
+.timeline{display:grid;gap:14px}
+.timeline .card{display:grid;grid-template-columns:100px 1fr;min-height:auto;gap:20px}
+.phase{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-weight:700}
+footer{
+  width:min(1120px,92%);margin:auto;padding:55px 0 80px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:25px;color:var(--muted);font-size:12px
+}
+footer strong{color:#fff}
+.reveal{opacity:0;transform:translateY(25px);transition:.8s ease}
+.reveal.show{opacity:1;transform:none}
+.glow{
+  position:fixed;z-index:1;pointer-events:none;width:280px;height:280px;border-radius:50%;
+  transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(139,220,255,.075),transparent 68%)
+}
+@media(max-width:800px){
+  .links{display:none}.hero{padding-top:120px}.heroGrid,.grid2,.grid3{grid-template-columns:1fr}
+  .visual{transform:none}.sectionHead{display:block}.lead{margin-top:15px}
+  .timeline .card{grid-template-columns:1fr}footer{display:block}footer div+div{margin-top:15px;text-align:left!important}
+}
+
+.booking-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}.booking-info,.booking-form{padding:30px}.booking-info h3{font-size:30px;letter-spacing:-.05em;margin:10px 0 14px}.booking-info p{color:var(--muted);line-height:1.7;font-size:14px}.booking-points{display:grid;gap:10px;margin-top:24px}.booking-point{display:flex;gap:11px;padding:12px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.035)}.booking-point b{display:block;font-size:13px;margin-bottom:3px}.booking-point span{font-size:12px;color:var(--muted)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:#c8d6e5;font-weight:600}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);outline:none;color:#fff;background:rgba(255,255,255,.055);border-radius:13px;padding:13px 14px;font:inherit;font-size:13px}.field select option{background:#101a27;color:#fff}.field textarea{resize:vertical;min-height:90px}.slot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.slot{padding:11px 8px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.035);color:#c9d8e8;font-size:11px;cursor:pointer}.slot.active{border-color:rgba(139,220,255,.6);background:rgba(139,220,255,.12);color:#fff}.booking-submit{width:100%;border:0;cursor:pointer;margin-top:18px}.booking-status{display:none;margin-top:14px;padding:13px;border:1px solid rgba(155,242,202,.25);border-radius:13px;background:rgba(155,242,202,.07);color:#c9f7df;font-size:12px;line-height:1.6}.booking-status.show{display:block}@media(max-width:800px){.booking-wrap{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+
+.hero-book-now{margin-top:30px;max-width:440px}
+.book-now-btn{
+  display:flex;align-items:center;gap:13px;padding:15px 16px;
+  border:1px solid rgba(139,220,255,.38);border-radius:18px;
+  background:linear-gradient(135deg,rgba(139,220,255,.18),rgba(185,168,255,.12));
+  box-shadow:0 15px 45px rgba(0,0,0,.22),inset 0 1px rgba(255,255,255,.13);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  transition:.3s
+}
+.book-now-btn:hover{transform:translateY(-4px);border-color:rgba(139,220,255,.65);box-shadow:0 20px 55px rgba(0,0,0,.3),0 0 35px rgba(139,220,255,.08)}
+.book-icon{
+  width:42px;height:42px;display:grid;place-items:center;border-radius:13px;
+  background:rgba(255,255,255,.09);font-size:22px
+}
+.book-now-btn strong{display:block;font-size:14px;color:#fff}
+.book-now-btn small{display:block;margin-top:3px;color:#aebdcd;font-size:10px}
+.book-now-btn .arrow{margin-left:auto;font-size:21px;color:var(--blue)}
+
+.nav-book{color:#fff!important;background:rgba(139,220,255,.13)!important;border:1px solid rgba(139,220,255,.24)}
+</style>
+<style>
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.price-card{padding:25px;min-height:245px;display:flex;flex-direction:column}
+.price-icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.055);font-size:21px;margin-bottom:20px}
+.price-card h3{font-size:17px;margin-bottom:7px}.price-card p{color:var(--muted);font-size:12px;line-height:1.6}
+.price{font-size:30px;font-weight:800;letter-spacing:-.06em;margin-top:auto;padding-top:18px}.price span{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:0}
+.price-note{margin-top:15px;color:var(--muted);font-size:11px;text-align:center}
+@media(max-width:950px){.pricing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="glow" id="glow"></div>
+
+<nav>
+  <div class="nav">
+    <a class="logo" href="#top">Elder<span>Seva</span></a>
+    <div class="links">
+      <a href="#need">Need</a><a href="#care">Care</a><a href="#trust">Trust</a>
+      <a href="#journey">Journey</a><a href="#pricing">Pricing</a><a href="#impact">Impact</a><a href="#booking" class="nav-book">Book Service</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="heroGrid">
+    <div class="reveal">
+      <div class="badge"><span class="dot"></span> DIGNIFIED CARE · AT HOME</div>
+      <h1><span class="gradient">ElderSeva</span><br>care that feels close.</h1>
+      <p>
+        Trusted, transparent, on-demand elder care for families who cannot always
+        be there. ElderSeva connects elders with verified care professionals while
+        keeping families informed and reassured.
+      </p>
+      
+<div class="hero-book-now">
+  <a class="book-now-btn" href="#booking">
+    <span class="book-icon">♡</span>
+    <span><strong>Book Service Now</strong><small>Choose care & schedule a visit</small></span>
+    <span class="arrow">→</span>
+  </a>
+</div>
+<div class="buttons">
+        <a class="btn primary" href="#care">Discover ElderSeva →</a>
+        <a class="btn" href="#trust">How trust works</a>
+      </div>
+      <div style="margin-top:24px;color:#8292a5;font-size:11px">
+        TEAM IGNITED MINDS · IIT (ISM) DHANBAD
+      </div>
+    </div>
+
+    <div class="glass visual reveal">
+      <div class="scene">
+        <div class="sceneLabel">Someone you trust, when you can't be there.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="need">
+  <div class="sectionHead reveal">
+    <div><div class="kicker">01 · The need</div><h2>Being far away<br>shouldn't mean helpless.</h2></div>
+    <p class="lead">Many elders live alone while their children work in other cities or abroad. Everyday care can become difficult to coordinate.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="glass card reveal"><div class="number">01</div><h3>Living alone</h3><p>Families may be separated by distance, work and different cities or countries.</p></div>
+    <div class="glass card reveal"><div class="number">02</div><h3>Everyday needs</h3><p>Cooking, bathing, mobility, medication and companionship can require dependable support.</p></div>
+    <div class="glass card reveal"><div class="number">03</div><h3>Finding the right person</h3><p>Families need confidence in a caregiver's identity, safety, skills and reliability.</p></div>
+    <div class="glass card reveal"><div class="number">04</div><h3>Knowing what happened</h3><p>Families want meaningful visibility into visits and the care their loved ones receive.</p></div>
+  </div>
+</section>
+
+<section id="care">
+  <div class="sectionHead reveal">
+    <div><div class="kicker">02 · The experience</div><h2>Care, designed<br>around the elder.</h2></div>
+    <p class="lead">A simple home-care experience that combines human support with thoughtful technology.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="glass card reveal">
+      <h3>Care at home</h3>
+      <p>Verified caregivers, nurses and physiotherapists can support elders in the comfort of home.</p>
+      <div><span class="tag">Caregivers</span><span class="tag">Nurses</span><span class="tag">Physiotherapy</span></div>
+    </div>
+    <div class="glass card reveal">
+      <h3>Flexible support</h3>
+      <p>Support can be arranged around everyday needs, recurring visits and the family's situation.</p>
+      <div><span class="tag">Recurring visits</span><span class="tag">Home support</span></div>
+    </div>
+    <div class="glass card reveal">
+      <h3>Family updates</h3>
+      <p>Digital visit information helps families stay connected even when they are physically far away.</p>
+      <div><span class="tag">Visit logs</span><span class="tag">Updates</span></div>
+    </div>
+  </div>
+
+  <div class="glass quote reveal">
+    <h3>“The goal isn't just care.<br>It's peace of mind.”</h3>
+    <p>ElderSeva is designed to make an elder feel supported and a family feel connected.</p>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="sectionHead reveal">
+    <div><div class="kicker">03 · Trust layer</div><h2>Technology that<br>supports human trust.</h2></div>
+    <p class="lead">The experience is built around transparency, safety and accountability.</p>
+  </div>
+
+  <div class="grid2">
+    <div class="glass card reveal"><h3>Verified people</h3><p>Background checks and caregiver profiles help families make informed choices.</p></div>
+    <div class="glass card reveal"><h3>Secure visits</h3><p>OTP check-in and check-out creates a clear record around each active visit.</p></div>
+    <div class="glass card reveal"><h3>Active visibility</h3><p>Consent-based live location sharing can provide visibility during active visits.</p></div>
+    <div class="glass card reveal"><h3>Feedback & escalation</h3><p>Feedback and incident escalation create a structured way to respond when something goes wrong.</p></div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="sectionHead reveal">
+    <div><div class="kicker">04 · The journey</div><h2>Start small.<br>Learn. Improve. Expand.</h2></div>
+    <p class="lead">A practical path from an initial pilot to a dependable city-wide care experience.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="glass card reveal">
+      <div class="phase">Step 01</div>
+      <div><h3>Pilot</h3><p>Refine the MVP, onboard an initial group of caregivers and work with a small set of families.</p></div>
+    </div>
+    <div class="glass card reveal">
+      <div class="phase">Step 02</div>
+      <div><h3>Improve</h3><p>Build better visit logging, location-sharing and care-management workflows from real feedback.</p></div>
+    </div>
+    <div class="glass card reveal">
+      <div class="phase">Step 03</div>
+      <div><h3>Scale carefully</h3><p>Expand city-wide while maintaining quality, safety and a consistent experience for elders and families.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="pricing">
+<div class="sectionHead reveal">
+<div><div class="kicker">07 · Service pricing</div><h2>Clear care.<br>Clear pricing.</h2></div>
+<p class="lead">Simple indicative pricing so families can understand the cost before requesting a service.</p>
+</div>
+<div class="pricing-grid">
+<div class="glass price-card reveal"><div class="price-icon">♡</div><h3>Caregiver Support</h3><p>Everyday assistance, companionship and basic elder support at home.</p><div class="price">₹600 <span>/ visit</span></div></div>
+<div class="glass price-card reveal"><div class="price-icon">✚</div><h3>Nursing Care</h3><p>Home nursing support for elders who need additional care and attention.</p><div class="price">₹800 <span>/ visit</span></div></div>
+<div class="glass price-card reveal"><div class="price-icon">⌁</div><h3>Physiotherapy</h3><p>Home-based physiotherapy sessions focused on mobility and recovery.</p><div class="price">₹700 <span>/ session</span></div></div>
+<div class="glass price-card reveal"><div class="price-icon">☀</div><h3>Companionship</h3><p>Friendly presence, conversation and support for elders at home.</p><div class="price">₹500 <span>/ visit</span></div></div>
+</div>
+<p class="price-note">Prices shown are indicative and can vary based on care requirements, duration and location.</p>
+</section>
+<section id="booking"><div class="sectionHead reveal"><div><div class="kicker">06 · Book a service</div><h2>Care when<br>you need it.</h2></div><p class="lead">Choose the care you need, select a convenient date and time, and send a service request to ElderSeva.</p></div><div class="booking-wrap"><div class="glass booking-info reveal"><div class="kicker">Simple & thoughtful</div><h3>Book care in a few steps.</h3><p>Tell us about the person who needs support and the type of service you are looking for.</p><div class="booking-points"><div class="booking-point"><div>✓</div><div><b>Choose a service</b><span>Caregiving, nursing, physiotherapy or companionship.</span></div></div><div class="booking-point"><div>◷</div><div><b>Pick a convenient time</b><span>Select your preferred date and visit slot.</span></div></div><div class="booking-point"><div>♡</div><div><b>Share your requirements</b><span>Add important details for the care team.</span></div></div></div></div><form class="glass booking-form reveal" id="bookingForm"><div class="form-grid"><div class="field"><label>Your name</label><input id="name" type="text" placeholder="Enter your name" required></div><div class="field"><label>Phone number</label><input id="phone" type="tel" placeholder="Enter phone number" required></div><div class="field"><label>Service</label><select id="service" required><option value="">Select a service</option><option>Caregiver support</option><option>Nursing care</option><option>Physiotherapy</option><option>Companionship</option><option>General elder care</option></select></div><div class="field"><label>Preferred date</label><input id="date" type="date" required></div><div class="field full"><label>Preferred time slot</label><div class="slot-grid"><button type="button" class="slot" data-time="9:00 AM – 11:00 AM">9–11 AM</button><button type="button" class="slot" data-time="11:00 AM – 1:00 PM">11 AM–1 PM</button><button type="button" class="slot" data-time="2:00 PM – 4:00 PM">2–4 PM</button><button type="button" class="slot" data-time="4:00 PM – 6:00 PM">4–6 PM</button><button type="button" class="slot" data-time="6:00 PM – 8:00 PM">6–8 PM</button><button type="button" class="slot" data-time="Flexible">Flexible</button></div><input id="time" type="hidden" required></div><div class="field full"><label>Service address</label><input id="address" type="text" placeholder="Enter the care location" required></div><div class="field full"><label>Anything we should know?</label><textarea id="notes" placeholder="Tell us about the elder's needs, mobility support, etc."></textarea></div></div><button class="btn primary booking-submit" type="submit">Request a care slot →</button><div class="booking-status" id="bookingStatus"></div></form></div></section>
+<section id="impact">
+  <div class="sectionHead reveal">
+    <div><div class="kicker">05 · Impact</div><h2>More dignity.<br>More connection.</h2></div>
+    <p class="lead">The outcome ElderSeva is aiming for is simple: better senior well-being and less stress for families.</p>
+  </div>
+
+  <div class="grid3">
+    <div class="glass card reveal"><h3>For elders</h3><p>Dependable support, companionship and care in familiar surroundings.</p></div>
+    <div class="glass card reveal"><h3>For families</h3><p>Greater reassurance and visibility when they cannot be physically present.</p></div>
+    <div class="glass card reveal"><h3>For caregivers</h3><p>A structured pathway toward dignified care work and professional opportunity.</p></div>
+  </div>
+
+  <div class="glass quote reveal" style="margin-top:15px">
+    <h3>Care should feel human.<br>Trust should feel visible.</h3>
+    <p>ElderSeva connects families with verified care professionals and transparent visit visibility — helping loved ones feel closer, even from far away.</p>
+    <div class="buttons" style="justify-content:center">
+      <a class="btn primary" href="#top">Back to beginning ↑</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div><strong>ELDERSEVA</strong><br>On-demand elder care services at home.</div>
+  <div style="text-align:right">TEAM IGNITED MINDS<br>IIT (ISM) DHANBAD</div>
+</footer>
+
+<script>
+const glow=document.getElementById('glow');
+window.addEventListener('pointermove',e=>{
+  glow.style.left=e.clientX+'px';
+  glow.style.top=e.clientY+'px';
+});
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+const dateInput=document.getElementById('date');if(dateInput){const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());dateInput.min=d.toISOString().split('T')[0]}const slots=document.querySelectorAll('.slot'),timeInput=document.getElementById('time');slots.forEach(x=>x.addEventListener('click',()=>{slots.forEach(y=>y.classList.remove('active'));x.classList.add('active');timeInput.value=x.dataset.time}));document.getElementById('bookingForm').addEventListener('submit',e=>{e.preventDefault();const st=document.getElementById('bookingStatus');if(!timeInput.value){st.textContent='Please choose a time slot.';st.classList.add('show');return}const n=document.getElementById('name').value.replace(/[<>&"]/g,'');st.innerHTML='Thanks, <strong>'+n+'</strong>. Your care-slot request has been recorded in this demo.';st.classList.add('show');e.target.reset();slots.forEach(x=>x.classList.remove('active'));timeInput.value=''})
+</script>
+</body>
+</html>
